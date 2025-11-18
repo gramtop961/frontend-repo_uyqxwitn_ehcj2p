@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const links = [
   { href: '#home', label: 'Home' },
@@ -11,7 +12,12 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="mx-auto max-w-6xl px-6">
-        <nav className="mt-6 flex items-center justify-between rounded-full border border-[#002B47]/10 bg-[#FFF5E8]/70 backdrop-blur-sm px-4 py-2.5 shadow-sm">
+        <motion.nav
+          initial={{ y: -12, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, ease: 'easeOut', delay: 0.2 }}
+          className="mt-6 flex items-center justify-between rounded-full border border-[#002B47]/10 bg-[#FFF5E8]/70 backdrop-blur-sm px-4 py-2.5 shadow-sm"
+        >
           <a href="#home" className="text-sm font-semibold tracking-wide text-[#002B47]">Rami Najem</a>
           <ul className="hidden gap-6 md:flex">
             {links.map((l) => (
@@ -31,7 +37,7 @@ export default function Navbar() {
           >
             Let’s talk
           </a>
-        </nav>
+        </motion.nav>
       </div>
     </header>
   )

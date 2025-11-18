@@ -5,7 +5,6 @@ import About from './components/About'
 import Work from './components/Work'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import Guide from './components/Guide'
 
 function App() {
   useEffect(() => {
@@ -33,7 +32,6 @@ function App() {
         <About />
         <Work />
         <Contact />
-        <Guide />
       </main>
       <Footer />
     </div>

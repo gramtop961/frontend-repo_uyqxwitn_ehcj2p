@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 
 const projects = [
   {
@@ -37,8 +38,16 @@ export default function Work() {
         </header>
 
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {projects.map((p) => (
-            <article key={p.id} className="group overflow-hidden rounded-2xl border border-[#002B47]/10 bg-white shadow-sm transition-transform">
+          {projects.map((p, i) => (
+            <motion.article
+              key={p.id}
+              className="group overflow-hidden rounded-2xl border border-[#002B47]/10 bg-white shadow-sm transition-transform"
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, ease: 'easeOut', delay: 0.1 + i * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+            >
               <div className="aspect-[16/10] overflow-hidden bg-[#001E2D]">
                 <img src={p.thumb} alt="" className="h-full w-full object-cover opacity-90 transition-transform duration-300 group-hover:scale-[1.03]" />
               </div>
@@ -54,7 +63,7 @@ export default function Work() {
                   <a href={p.figma} target="_blank" rel="noreferrer" className="text-sm font-medium text-[#007B84] underline underline-offset-4 hover:no-underline">View Project</a>
                 </div>
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       </div>
